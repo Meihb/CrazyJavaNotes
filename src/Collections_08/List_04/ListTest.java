@@ -46,7 +46,7 @@ public class ListTest {
         }
         System.out.println("逆向输出");
         while (li.hasPrevious()) {
-            System.out.println("<<<"+li.previous());
+            System.out.println("<<<" + li.previous());
         }
     }
 }
