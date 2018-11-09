@@ -15,7 +15,7 @@ public class GenericConstructor {
         //显式
         Fa f3 = new <String>Fa("sass");
         //显式冲突,代码出错
-        Fa f4 = new <String>Fa(111);
+//        Fa f4 = new <String>Fa(111);
 
 
     }
