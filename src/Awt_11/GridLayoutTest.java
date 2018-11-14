@@ -1,6 +1,7 @@
-package awt_11;
+package Awt_11;
 
 import java.awt.*;
+
 
 public class GridLayoutTest {
     public static void main(String[] args) {
@@ -25,6 +26,7 @@ public class GridLayoutTest {
         f.add(p1, BorderLayout.NORTH);
         f.add(p2, BorderLayout.CENTER);
         f.pack();
+        f.setLocation(1000, 300);
         f.setVisible(true);
     }
 }

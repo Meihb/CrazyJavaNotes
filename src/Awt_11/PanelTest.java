@@ -1,4 +1,4 @@
-package awt_11;
+package Awt_11;
 
 import java.awt.*;
 
