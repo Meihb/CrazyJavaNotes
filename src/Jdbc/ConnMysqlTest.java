@@ -37,11 +37,11 @@ public class ConnMysqlTest {
                 System.out.println("获取主键"+rs_key2.getInt(1));
             }
 
-            System.out.println();
-//            ResultSet rs = stmt.executeQuery("SELECT * FROM `baidu_index` WHERE 1");
-//            while (rs.next()) {
-//                System.out.println(rs.getInt(1));
-//            }
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `jdbc_test` WHERE 1");
+            System.out.print(rs.getRow());//获取行数,可以把rs设置为last(),然后获取row,则可以获取结果集行数
+            while (rs.next()) {
+                System.out.println(rs.getInt(1));
+            }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             System.out.println("sqlState is " + sqle.getSQLState());

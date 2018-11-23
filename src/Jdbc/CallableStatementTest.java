@@ -29,13 +29,19 @@ public class CallableStatementTest {
     }
 
     public static void main(String[] args) {
+//        new CallableStatementTest().createProcedure();
         try (
                 Connection conn = DriverManager.getConnection("jdbc:mysql://118.25.41.135:3306/test?" +
                                 "characterEncoding=UTF-8&useSSL=true&serverTimezone=GMT%2B8",
                         "dwts", "dwts");
                 CallableStatement cstmt = conn.prepareCall("call add_pro(?,?,?)");
         ) {
-            cstmt.
+            cstmt.setInt(1, 2);
+            cstmt.setInt(2, 3);
+            cstmt.registerOutParameter(3, Types.INTEGER);
+
+            cstmt.execute();
+            System.out.println(cstmt.getInt(3));
 
 
         } catch (Exception e) {
