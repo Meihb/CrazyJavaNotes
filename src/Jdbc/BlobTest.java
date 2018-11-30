@@ -11,4 +11,6 @@ public class BlobTest {
     private static PreparedStatement query;
     private static PreparedStatement queryAll;
     //定义一个DefaultListModel对象
+
+//    private DefaultListModel<ImageHolder> imageModel = new DefaultListModel<ImageHolder>();
 }
