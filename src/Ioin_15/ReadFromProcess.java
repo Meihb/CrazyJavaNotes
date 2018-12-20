@@ -7,8 +7,9 @@ import java.io.InputStreamReader;
 public class ReadFromProcess {
     public static void main(String[] args) throws IOException {
         try {
-            String[] cmd = {"cmd", "D:\\version_control\\git\\CrazyJavaNotes\\", "notepad.exe"};
-            Process p = Runtime.getRuntime().exec("notepad.exe");
+            String[] cmd = {"cmd", "/c", "javac"};
+//            Process p = Runtime.getRuntime().exec("notepad.exe");
+            Process p = Runtime.getRuntime().exec(cmd);
             System.out.println(p);
             /*
             Process进程下IO流
@@ -16,7 +17,7 @@ public class ReadFromProcess {
             InputStream getInputStream() 输入流
             OutStream   getOutoutStream() 子进程输出流
              */
-            BufferedReader br = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+            BufferedReader br = new BufferedReader(new InputStreamReader(p.getErrorStream(),"GBK"));
             String line = null;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
