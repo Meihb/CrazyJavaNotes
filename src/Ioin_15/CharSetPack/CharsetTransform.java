@@ -30,9 +30,16 @@ public class CharsetTransform {
             System.out.println(bbuff.get() + "");
         }
         bbuff.flip();
-        System.out.println("\r\n"+decoder.decode(bbuff));
+        System.out.println("\r\n" + decoder.decode(bbuff));
         bbuff.flip();
         //可以直接使用字符集的方法解码/编码
-        System.out.println("\r\n"+charset.decode(bbuff));
+        System.out.println("\r\n" + charset.decode(bbuff));
+
+
+        String a = "ab";
+        String b = a.intern();
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(b==a);
     }
 }
