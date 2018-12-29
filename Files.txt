@@ -28,8 +28,17 @@ public class FilesTest {
         poem.add("金闺花柳质");
         poem.add("一载赴黄粱");
 
-        Files.write(Paths.get("poem.txt"), poem,Charset.forName("GBK"));
+        Files.write(Paths.get("poem.txt"), poem, Charset.forName("UTF-8"));
 
-        Files.list(path).forEach(System.out::println);
+        Files.list(Paths.get(".")).forEach(
+
+        info -> {
+            System.out.println(
+
+                 info
+
+            );
+        }
+        );
     }
 }
