@@ -113,7 +113,7 @@ public class DownUtil {
                 byte[] buffer = new byte[1024];
                 int hasRead = 0;
                 //读取网络文件
-                while (length < currentPartSize && (hasRead = inputStream.read(buffer)) != -1) {
+                while (length < currentPartSize && (hasRead = inputStream.read(buffer)) >0) {
                     currentPart.write(buffer, 0, hasRead);
                     length += hasRead;
                 }
