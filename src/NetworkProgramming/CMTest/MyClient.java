@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.nio.charset.Charset;
 
 //读取Server发送过来的消息并打印
 class ClientThread implements Runnable {
@@ -42,13 +43,19 @@ public class MyClient {
             //开启线程读取Server
             new Thread(new ClientThread(s)).start();
             //读取键盘输入,发送至服务器
+
+            /*
+            Socket传输数据好像必须要用Stream,尝试使用Writer失败
+             */
             PrintStream ps = new PrintStream(s.getOutputStream());
+//            PrintWriter pw = new PrintWriter(new OutputStreamWriter(s.getOutputStream(), Charset.forName("utf-8")));
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String line = null;
             while ((line = br.readLine()) != null) {
                 if (line.length() > 0) {
                     System.out.println("获取到键盘输入!");
                     ps.println(line);
+//                    pw.println("writer:"+line);
                 }
 
             }

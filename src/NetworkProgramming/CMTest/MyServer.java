@@ -40,9 +40,15 @@ class ServerThread implements Runnable {
                 //循环输出到SocketList列表中的各个Socket
                 for (Socket newS : MyServer.socketList
                 ) {
-                    PrintWriter ps = new PrintWriter(new OutputStreamWriter(newS.getOutputStream()));
+                    /*
+                    同样,无法使用writer,无法理解
+                     */
+                    PrintStream ps = new PrintStream(newS.getOutputStream());
+//                    PrintWriter ps = new PrintWriter(new OutputStreamWriter(newS.getOutputStream(), "utf-8"));
                     ps.println(line);
-                    ps.close();
+                    /*
+                    切记不要关闭ps.close()似乎会把节点流同样关闭
+                     */
                 }
             }
         } catch (IOException e) {
